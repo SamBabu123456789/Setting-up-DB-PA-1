@@ -1,9 +1,10 @@
 const express = require('express');
 const { resolve } = require('path');
 const mongoose =require('mongoose')
+require('dotenv').config();
 const db=async () => {
   try{
-  await mongoose.connect(`mongodb+srv://sambabupolimetla:root@cluster0.xxyl1.mongodb.net/sam?retryWrites=true&w=majority&appName=Cluster0`)
+    await mongoose.connect(process.env.MONGO_URL);
     console.log("connected")
 }
 catch(e){
